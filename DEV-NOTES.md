@@ -18,3 +18,7 @@
 * `SDL_keysym.h` and `SDL_types.h` are the SDL 1.2 headers from the Fenix tree (LGPL).
 * Reuses the Altitude port's SDL2 patch (audio pacing for the dummy device, divide-by-zero guard) and its
   SDL2_mixer + libxmp-lite patch. libmodplug faults on unaligned access on this CPU; libxmp-lite does not.
+* **Mixer channels must be 8 or fewer.** fxi's `sound.c` keeps `lista_canales[8]`, indexed by the channel
+  SDL_mixer picks; the first build allocated 16. In that binary the stray writes would have landed in padding and
+  in two variables the game never uses (pathfinding block size, DLL export table), and needed 9 or more sounds at
+  once, so no fault was seen, but it depended on the memory layout.

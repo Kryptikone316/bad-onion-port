@@ -53,7 +53,9 @@ int fxmix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize)
 	if (Mix_OpenAudio(rate, AUDIO_S16SYS, 2, 2048) < 0) return -1;
 	hwaudio_init();
 	Mix_SetPostMix(postmix, NULL);
-	Mix_AllocateChannels(16);
+	/* Not more than 8: fxi's sound.c records which sound is on which channel in lista_canales[8],
+	 * indexed by whatever channel SDL_mixer picked. */
+	Mix_AllocateChannels(8);
 	Mix_QuerySpec(&rate, &fmt, &ch);
 	mixer_open = 1;
 	fprintf(stderr, "fxsdl: audio spec rate=%d channels=%d\n", rate, ch);
