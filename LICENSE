@@ -23,7 +23,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 For more information, please refer to <https://unlicense.org>
 
-This licence covers only what is written for this port: launcher/, tools/, build_sf3500.sh, package.sh,
-package-src/, and runtime/modules/mod_grproc/sf3500_bot.inc. It does not cover the author's game (game/), the
-modified BennuGD runtime and the code derived from other projects (runtime/), or the bundled third-party
-components: see README.md, licenses/CREDITS.txt and licenses/.
+This licence covers only what is written for this port under it: tools/, build_sf3500.sh, package.sh and
+package-src/ (not the box art). It does not cover the author's game (game/), the Fenix interpreter
+(fenix080/), the layer that links into it (shim/, GPL version 2 or later), the SF3500 glue and patches
+(sf3500/), or the bundled third-party components: see README.md, licenses/CREDITS.txt and licenses/.
